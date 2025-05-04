@@ -38,17 +38,7 @@ export default function KnowledgeDetailPage({ params }: { params: { slug: string
     </div>
   )
 }
-export async function generateStaticParams() {
-  // 返回您希望预渲染的所有知识文章的 slug
-  // 这里是一个示例，您需要根据实际数据调整
-  return [
-    { slug: "python-basics" },
-    { slug: "javascript-fundamentals" },
-    { slug: "react-introduction" },
-    { slug: "nextjs-overview" },
-    { slug: "anime-history" },
-  ]
-}
+
 
 // 页面组件...
 
