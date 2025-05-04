@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Download, Github, ExternalLink } from "lucide-react"
+import { ArrowLeft, Download, Github, ExternalLink } from 'lucide-react'
 import { assignments } from "@/data/assignments"
 import { PageHeader } from "@/components/page-header"
 import { CategoryBadge } from "@/components/category-badge"
@@ -8,11 +8,12 @@ import { AssignmentSystemCard } from "@/components/assignment-system-card"
 import { notFound } from "next/navigation"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-// 添加这个函数来生成静态参数
+// 修改 generateStaticParams 函数，使用实际的数据
 export async function generateStaticParams() {
-  // 返回您希望预渲染的所有作业的 slug
-  // 这里是一个示例，您需要根据实际数据调整
-  return [{ slug: "assignment-1" }, { slug: "assignment-2" }, { slug: "assignment-3" }, { slug: "final-project" }]
+  // 从 assignments 数据中获取所有的 slug
+  return assignments.map((assignment) => ({
+    slug: assignment.slug,
+  }))
 }
 
 export default function AssignmentDetailPage({ params }: { params: { slug: string } }) {

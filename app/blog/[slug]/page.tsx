@@ -3,17 +3,14 @@ import { Calendar, Clock, User } from "lucide-react"
 import ClickableImage from "@/components/clickable-image"
 import PageNavigation from "@/components/page-navigation"
 import { CategoryBadge } from "@/components/category-badge"
+import { blogPosts } from "@/data/blog-posts"
 
-// 添加这个函数来生成静态参数
-export function generateStaticParams() {
-  // 返回所有可能的 slug 参数
-  return [
-    { slug: "darling-in-the-franxx-ai-human-relationship" },
-    { slug: "python-data-analysis-pandas" },
-    { slug: "javascript-async-programming" },
-    // 添加更多博客文章的 slug
-  ]
+export async function generateStaticParams() {
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }))
 }
+
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   // 在一个真实应用中，你会根据 slug 获取博客文章数据
