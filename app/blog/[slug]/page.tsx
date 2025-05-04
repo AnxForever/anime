@@ -4,9 +4,20 @@ import ClickableImage from "@/components/clickable-image"
 import PageNavigation from "@/components/page-navigation"
 import { CategoryBadge } from "@/components/category-badge"
 
+// 添加这个函数来生成静态参数
+export function generateStaticParams() {
+  // 返回所有可能的 slug 参数
+  return [
+    { slug: "darling-in-the-franxx-ai-human-relationship" },
+    { slug: "python-data-analysis-pandas" },
+    { slug: "javascript-async-programming" },
+    // 添加更多博客文章的 slug
+  ]
+}
+
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  // In a real application, you would fetch the blog post data based on the slug
-  // For this example, we'll use a mock post
+  // 在一个真实应用中，你会根据 slug 获取博客文章数据
+  // 对于这个例子，我们使用一个模拟文章
   const post = {
     title: "从《DARLING in the FRANXX》看人工智能与人类关系",
     slug: "darling-in-the-franxx-ai-human-relationship",
