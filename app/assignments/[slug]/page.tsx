@@ -8,14 +8,11 @@ import { AssignmentSystemCard } from "@/components/assignment-system-card"
 import { notFound } from "next/navigation"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-// 如果这个文件存在，也需要添加 generateStaticParams() 函数
-export function generateStaticParams() {
-  return [
-    { slug: "assignment-1" },
-    { slug: "assignment-2" },
-    { slug: "assignment-3" },
-    // 添加更多作业的 slug
-  ]
+// 添加这个函数来生成静态参数
+export async function generateStaticParams() {
+  // 返回您希望预渲染的所有作业的 slug
+  // 这里是一个示例，您需要根据实际数据调整
+  return [{ slug: "assignment-1" }, { slug: "assignment-2" }, { slug: "assignment-3" }, { slug: "final-project" }]
 }
 
 export default function AssignmentDetailPage({ params }: { params: { slug: string } }) {
@@ -172,4 +169,3 @@ export default function AssignmentDetailPage({ params }: { params: { slug: strin
     </div>
   )
 }
-

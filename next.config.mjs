@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // 为静态导出
+  output: 'export',
+  trailingSlash: true,
   images: {
-    unoptimized: true,  // Cloudflare Pages 需要
+    unoptimized: true,
   },
   eslint: {
     ignoreDuringBuilds: true,

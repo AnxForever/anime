@@ -1,6 +1,5 @@
 {
-    "version": 1,
-    "include": ["/*"],
-    "exclude": ["/_next/*", "/api/*"]
-  }
-  
+  "version": 1,
+  "include": ["/*"],
+  "exclude": ["/_next/*", "/api/*", "/_vercel/*", "/_next/static/*", "/_next/image/*"]
+}

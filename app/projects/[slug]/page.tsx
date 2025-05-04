@@ -6,15 +6,19 @@ import PageNavigation from "@/components/page-navigation"
 import { CategoryBadge } from "@/components/category-badge"
 import { SectionHeader } from "@/components/section-header"
 import type { CategoryType } from "@/types"
+// 其他导入...
 
 // 添加这个函数来生成静态参数
-export function generateStaticParams() {
-  // 返回所有可能的 slug 参数
+export async function generateStaticParams() {
+  // 返回您希望预渲染的所有项目的 slug
+  // 这里是一个示例，您需要根据实际数据调整
   return [
     { slug: "anime-character-recognition" },
     { slug: "personal-blog-system" },
     { slug: "anime-recommendation-system" },
-    // 添加更多项目的 slug
+    { slug: "anime-style-image-generator" },
+    { slug: "data-structure-algorithm-report" },
+    { slug: "web-frontend-coursework" },
   ]
 }
 
