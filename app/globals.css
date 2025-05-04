@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 30% 98%;
+    --foreground: 260 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 25% 15%;
+    --primary: 260 50% 50%;
+    --primary-foreground: 260 10% 98%;
+    --secondary: 260 40% 66%;
+    --secondary-foreground: 260 10% 98%;
+    --muted: 260 20% 96%;
+    --muted-foreground: 260 10% 40%;
+    --accent: 210 100% 86%;
+    --accent-foreground: 260 25% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 260 20% 90%;
+    --input: 260 20% 90%;
+    --ring: 260 50% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 260 25% 12%;
+    --foreground: 260 10% 98%;
+    --card: 260 25% 15%;
+    --card-foreground: 260 10% 98%;
+    --popover: 260 25% 15%;
+    --popover-foreground: 260 10% 98%;
+    --primary: 260 50% 50%;
+    --primary-foreground: 260 10% 98%;
+    --secondary: 260 40% 66%;
+    --secondary-foreground: 260 10% 98%;
+    --muted: 260 25% 20%;
+    --muted-foreground: 260 10% 70%;
+    --accent: 210 100% 86%;
+    --accent-foreground: 260 25% 15%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 260 10% 98%;
+    --border: 260 25% 25%;
+    --input: 260 25% 25%;
+    --ring: 260 50% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight;
+  }
+}
+
+/* Custom styles for blog content */
+.prose pre {
+  @apply bg-gray-50 dark:bg-gray-800 p-4 rounded-md overflow-x-auto;
+  border: 1px solid rgba(108, 74, 182, 0.2);
+  box-shadow: 0 2px 4px -1px rgba(108, 74, 182, 0.05);
+}
+
+.prose code {
+  @apply text-anx-primary dark:text-anx-secondary text-sm;
+}
+
+.prose h2 {
+  @apply text-xl font-bold mt-8 mb-4 text-gray-900 dark:text-gray-100;
+  border-bottom: 1px solid rgba(108, 74, 182, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  @apply text-lg font-bold mt-6 mb-3 text-gray-900 dark:text-gray-100;
+}
+
+.prose p {
+  @apply my-4 text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+.prose ul,
+.prose ol {
+  @apply my-4 ml-6 text-gray-700 dark:text-gray-300;
+}
+
+.prose li {
+  @apply mb-1;
+}
+
+.prose blockquote {
+  @apply border-l-2 border-anx-primary pl-4 italic my-4 text-gray-700 dark:text-gray-300;
+  background-color: rgba(108, 74, 182, 0.05);
+  padding: 0.75rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.prose a {
+  @apply text-anx-primary dark:text-anx-secondary hover:underline;
+  text-decoration: none;
+  background-image: linear-gradient(to right, #6c4ab6, #8d72e1);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: background-size 0.3s;
+}
+
+.prose a:hover {
+  background-size: 100% 2px;
+  background-position: bottom;
+}
+
+.prose figure {
+  @apply my-6;
+}
+
+.prose figcaption {
+  @apply text-center text-sm text-gray-500 mt-2;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Smooth scrolling for the photo gallery */
+@media (prefers-reduced-motion: no-preference) {
+  .transition-transform {
+    transition-property: transform;
+    transition-timing-function: linear;
+    transition-duration: 1000ms;
+  }
+}
+
+/* Ensure smooth animation for the photo gallery */
+.group {
+  perspective: 1000px;
+}
+
+/* 确保轮播滚动平滑 */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* 樱花效果样式 - 简化版本 */
+@keyframes sakura-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.sakura-petal {
+  pointer-events: none;
+  position: absolute;
+  animation: sakura-fall 10s linear forwards;
+  z-index: 0 !important;
+}
+
+/* 樱花按钮悬停效果 */
+.sakura-toggle-btn {
+  transition: all 0.3s ease;
+}
+
+.sakura-toggle-btn:hover {
+  transform: rotate(45deg);
+  box-shadow: 0 0 15px rgba(255, 143, 177, 0.7);
+}
+
+/* 移动设备优化 - 更新为更轻量的效果 */
+@media (max-width: 768px) {
+  /* 减少动画复杂度 */
+  @keyframes sakura-fall-mobile {
+    0% {
+      opacity: 0;
+      transform: translateY(-5%) rotate(0deg);
+    }
+    10% {
+      opacity: 0.5; /* 更低的不透明度 */
+    }
+    90% {
+      opacity: 0.5; /* 更低的不透明度 */
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(90deg); /* 减少旋转量 */
+    }
+  }
+
+  .sakura-petal {
+    animation: sakura-fall-mobile 15s linear forwards; /* 延长动画时间 */
+    filter: blur(0.5px); /* 轻微模糊以减少视觉干扰 */
+  }
+}
+
+/* 低性能模式样式 */
+.low-performance-mode .sakura-petal {
+  filter: none !important; /* 移除任何滤镜效果 */
+  box-shadow: none !important; /* 移除阴影 */
+}
+
+/* 确保樱花不会干扰内容阅读 */
+main {
+  position: relative;
+  z-index: 1; /* 确保内容在樱花之上 */
+}
+
+/* 确保交互元素在樱花之上 */
+button,
+a,
+input,
+textarea,
+select {
+  position: relative;
+  z-index: 2;
+}
+
+/* 图片查看器样式 */
+.image-viewer-backdrop {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* 可点击图片悬停效果 */
+.clickable-image {
+  transition: all 0.3s ease;
+}
+
+.clickable-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片画廊动画 */
+.gallery-masonry {
+  column-gap: 1rem;
+}
+
+/* 移动设备优化 */
+@media (max-width: 768px) {
+  .image-viewer-controls {
+    opacity: 1 !important;
+  }
+
+  .image-viewer-caption {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  /* 改进移动设备上的触摸交互 */
+  .touch-action-none {
+    touch-action: none;
+  }
+}
+
+/* 图片查看器手势提示 */
+.gesture-hint {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gesture-hint.visible {
+  opacity: 1;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* AnxForever Custom Styles */
+.anx-gradient-text {
+  @apply bg-clip-text text-transparent bg-anx-gradient;
+}
+
+.anx-card {
+  @apply border-anx-primary/20 hover:border-anx-primary/50 transition-colors;
+}
+
+.anx-button {
+  @apply bg-anx-gradient text-white hover:opacity-90 transition-opacity;
+}
+
+.anx-button-outline {
+  @apply border-anx-primary text-anx-primary hover:bg-anx-primary/10 transition-colors;
+}
+
+.anx-badge {
+  @apply bg-anx-accent/30 text-anx-primary border-anx-primary/20;
+}
+
+.anx-link {
+  @apply text-anx-primary hover:text-anx-secondary transition-colors;
+}
+
+.anx-section-header {
+  @apply bg-anx-gradient text-white;
+}
+
+.anx-section-header-alt {
+  @apply bg-anx-gradient-alt text-anx-dark;
+}
+
+.anx-section-header-energetic {
+  @apply bg-anx-gradient-energetic text-white;
+}
+
+.anx-hover-card {
+  @apply hover:shadow-lg hover:shadow-anx-primary/10 transition-shadow;
+}
+
+.anx-input-focus {
+  @apply focus:border-anx-primary focus:ring-anx-primary/30;
+}
+
+.anx-divider {
+  @apply border-anx-primary/20;
+}
+
+/* 添加星形裁剪路径 */
+.clip-path-star {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}

@@ -1,0 +1,7 @@
+name = "anime-blog"
+compatibility_date = "2023-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# 启用 Cloudflare Pages 功能
+[build]
+command = "npm run pages:build"

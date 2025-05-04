@@ -1,0 +1,11 @@
+export type CategoryType =
+  | "default"
+  | "python"
+  | "javascript"
+  | "css"
+  | "algorithm"
+  | "anime"
+  | "project"
+  | "blog"
+  | "assignment"
+  | "knowledge"
