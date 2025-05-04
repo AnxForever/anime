@@ -7,6 +7,17 @@ import { CategoryBadge } from "@/components/category-badge"
 import { SectionHeader } from "@/components/section-header"
 import type { CategoryType } from "@/types"
 
+// 添加这个函数来生成静态参数
+export function generateStaticParams() {
+  // 返回所有可能的 slug 参数
+  return [
+    { slug: "anime-character-recognition" },
+    { slug: "personal-blog-system" },
+    { slug: "anime-recommendation-system" },
+    // 添加更多项目的 slug
+  ]
+}
+
 // Helper function to map tags to CategoryType
 function getTagCategory(tag: string): CategoryType {
   if (tag.toLowerCase().includes("python")) return "python"

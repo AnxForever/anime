@@ -3,6 +3,19 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import AnimeLoading from "@/components/anime-loading"
 
+// 添加这个函数来生成静态参数
+export function generateStaticParams() {
+  // 返回所有可能的 slug 参数
+  return [
+    { slug: "python-basics" },
+    { slug: "javascript-fundamentals" },
+    { slug: "anime-history" },
+    { slug: "machine-learning-intro" },
+    { slug: "web-development" },
+    // 添加更多知识库文章的 slug
+  ]
+}
+
 export default function KnowledgeDetailPage({ params }: { params: { slug: string } }) {
   return (
     <div className="flex flex-col min-h-screen">

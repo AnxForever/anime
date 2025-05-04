@@ -8,6 +8,16 @@ import { AssignmentSystemCard } from "@/components/assignment-system-card"
 import { notFound } from "next/navigation"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
+// 如果这个文件存在，也需要添加 generateStaticParams() 函数
+export function generateStaticParams() {
+  return [
+    { slug: "assignment-1" },
+    { slug: "assignment-2" },
+    { slug: "assignment-3" },
+    // 添加更多作业的 slug
+  ]
+}
+
 export default function AssignmentDetailPage({ params }: { params: { slug: string } }) {
   // 查找对应的作业
   const assignment = assignments.find((a) => a.slug === params.slug)
@@ -162,3 +172,4 @@ export default function AssignmentDetailPage({ params }: { params: { slug: strin
     </div>
   )
 }
+
